@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div>
+        <textarea id="uri"></textarea>
+        <button onclick="fetch()">抓取</button>
+        <hr>
+        <h5>result: </h5>
+        <pre id="res">
+
+        </pre>
+    </div>
+    <script>
+        function fetch(){
+            $.get('/fetch?uri=' + $("#uri").val(),function (r){
+                console.log(r)
+                $("#res").text(JSON.stringify(r))
+            },'JSON')
+        }
+    </script>
+</body>
+</html>
